@@ -1,0 +1,26 @@
+1，安装Setup-Subversion
+2，右键TortoiseSVN后点击"在此创建版本库"
+3，# password-db = passwd，将前面的#删除，保存关闭
+4，同一目录下找到passwd # harry = harryssecret  密码=账号
+5，svnserve -d -r e:\ejsvn;（临时）sc create svnservice binpath= “c:Program Files\Subversion\bin\svnserve.exe –service -r e:svn”(设为自启动)
+
+
+配置解释
+password-db = passwd.conf		用户名与密码放在passwd.conf 
+
+# anon-access = read
+# auth-access = write			只允许经过验证的用户，方可访问代码库
+
+authz-db = authz.conf 			权限配置，分组 
+[groups]
+# harry_and_sally = harry,sally               分组harry_and_sally组   harry,sally两个账户
+# harry_sally_and_joe = harry,sally,&joe
+
+# [/foo/bar]									所有SVN库
+# harry = rw									harry读写 		  					
+# &joe = r 										joe读
+# * = 											其他人空
+
+# [repository:/baz/fuz]							repository库
+# @harry_and_sally = rw							harry_and_sally组读写				
+# * = r 										其他人读

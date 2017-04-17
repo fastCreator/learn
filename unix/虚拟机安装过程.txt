@@ -1,0 +1,11 @@
+1，安装virtualBOX
+2，安装vagrant——1.9.1.mis
+3,vagrant init 
+4,修改配置文件Vagrantfile
+5，vagrant up 报错记得CMD CUP虚拟机模式打开|复制Vagrantfile文件|
+C:\Users\Administrator\VirtualBox VMs 复制文件（网络慢）
+6，putty 链接我的虚拟机
+
+启动
+进入init页面   vagrant up
+putty_V0.63.0.0.43510830  进入链接

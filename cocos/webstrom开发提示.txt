@@ -1,0 +1,1 @@
+把项目文件夹下生成的 creator.d.ts 放到 webstorm 项目里，或者在偏好设置里配置下 Languages & Frameworks > JavaScript > Libraries, 把 creator.d.ts 添加进去。

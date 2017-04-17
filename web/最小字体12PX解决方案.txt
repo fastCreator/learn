@@ -1,0 +1,18 @@
+　html{
+
+　　-webkit-text-size-adjust:none;
+
+　　}
+
+  .small-font{
+            font-size: 12px;
+            -webkit-transform-origin-x: 0;
+            -webkit-transform: scale(0.90);
+        }
+
+         .smallsize-font {
+ 　　　　font-size:10.8px;
+
+       　　        }
+
+       <p style="color: #FF0000;" class="small-font smallsize-font">温馨提示：</p>

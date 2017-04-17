@@ -1,0 +1,12 @@
+1,docker-compose kill
+2,docker ps
+2,docker-compose ps
+3,docker-compose up -d
+4,docker-compose rm
+5, sudo docker exec -ti kafka_kafka1_1 /bin/bash
+
+
+kafka开启
+
+sudo service docker start
+sudo docker run hello-world

@@ -1,0 +1,147 @@
+﻿http://forum.cocos.com/t/creator/39917 //学习总目录
+
+
+http://forum.cocos.com/t/cocos-creator/39487 //入门游戏教程
+1，预加载资源 prefab
+
+this.starPool = new cc.NodePool();
+this.pipePool.put(cc.instantiate(this.pipeGroupPre));  //销毁，初始化预存，instantiate 复制 node.destroy()摧毁
+this.starPool.put(cc.instantiate(this.starPre));
+var star = this.starPool.get();  //获取
+this.pipeLayer.addChild(star);
+this.pipePool.put(star ); //摧毁star
+
+2，碰撞系统	（超出屏幕，可以给个碰撞，技巧）
+
+cc.director.getCollisionManager().enabled = true;
+
+    onCollisionEnter: function(other,self){
+        if(other.tag === 333){
+            this.desPipe(other.node);
+        }else if(other.tag === 666){
+            this.desStar(other.node);
+        }
+    },
+
+
+3，关卡配置=》模块化脚本
+
+var cfg = {
+    moveSpeed: 10,
+    version: "0.15",
+    showTutorial: true, 
+    load: function () {
+        // ...
+    }
+};
+cfg.load();   
+var config = require("config");
+cc.log("speed is", config.moveSpeed);
+
+4,数据存储
+
+5，按钮图片 竖线，横线 sprite编辑器
+
+6,枚举
+var STATE = cc.Enum({
+NONE:0,
+NORMAL:1,
+SUPER:2,
+DEAD:3,
+});
+STATE.NONE,
+
+7，常驻节点(最高分数存储在常驻节点上面，以便所有canvas共享)
+cc.game.addPersistRootNode(this.node); //我们在常驻节点的onLoad方法里将Record节点变成游戏的常驻节点
+cc.game.removePersistRootNode(node)   //销毁常驻节点
+cc.find('Record').getComponent('Record');//其他node 获取常驻节点
+
+8.存储
+var bestJumpScore = cc.sys.localStorage.getItem("bestJumpScore");
+        if(bestRunScore){
+            this.bestJumpScore = bestJumpScore;
+}
+cc.sys.localStorage.setItem('bestRunScore', this.bestRunScore);
+cc.sys.localStorage.getItem("bestRunScore");
+
+9,声音系统
+cc.audioEngine.playMusic(source);
+cc.audioEngine.stopMusic(source);
+cc.audioEngine.playEffect(source);
+cc.audioEngine.stopEffect(source);
+
+10，对齐组件 Widget
+
+11，cc.v2(1,3);  cc.p
+
+12,好代码（动画播放，停止时销毁，或者回收节点）
+var anim = this.getComponent(cc.Animation);
+     anim.play();
+    anim.on('stop', this.onStop, this);
+
+13,点击事件 
+	click+1  选中JS节点 选中方法
+    buttonScaler 组件 点击放大
+
+14,蒙板（mask）
+    蒙板给的图片
+
+15,切换纹理
+var realUrl=cc.url.raw('image/test.png');
+var texture=cc.textureCache.addImage(realUrl);
+this.getComponent(cc.Sprite).spriteFrame.setTexture(texture);
+
+
+16,读取json文件
+var url = cc.url.raw( 'resources/test.json' )
+cc.loader.load( url, function( err, res)
+{
+    // 如果有異常會在 err 變數顯示, 否則在res就會是讀進來的json object
+    cc.log( 'load'+ url +'], err'+err+'] result: ' + JSON.stringify( res ) );
+});
+
+
+//Game.js
+var Player = require("Player");
+var CameraManager = require("CameraManager");
+var PrefabManager = require("PrefabManager");
+cc.Class({
+    extends: cc.Component,
+
+    properties: {
+        player:Player,
+        cameraManager:CameraManager,
+        prefabManager:PrefabManager,
+    },
+
+    onLoad: function () {
+        //返回键返回菜单
+        cc.eventManager.addListener({
+            event: cc.EventListener.KEYBOARD,
+            onKeyPressed: function(keyCode, event) {
+                if(keyCode == cc.KEY.back){
+                    cc.director.loadScene('Menu');
+                }
+            }
+        }, this.node);
+        this.startGame();
+    },
+    
+    startGame: function(){
+        this.cameraManager.init(this);
+        this.prefabManager.init(this);
+        this.player.init(this);
+    },
+    
+    stopGame: function(){
+        
+    },
+    
+    gainScore: function(){
+        
+    },
+    
+    gainEnergy:function(){
+        
+    },
+});

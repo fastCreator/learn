@@ -1,0 +1,7 @@
+https://leancloud.cn/docs/leanengine_cli.html
+1,npm install -g leancloud-cli 安装手脚架
+2,lean new 创建应用
+3,npm install 安装依赖
+4,lean up 启动应用
+5,lean deploy 部署
+6,lean deploy -g 从git取

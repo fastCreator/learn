@@ -1,0 +1,7 @@
+Ctrl 选中
+Ctrl + D 取消
+Ctrl + A  
+Ctrl + V 复制
+Ctrl + N 新建图层
+Ctrl + V 粘贴
+c+s+a + s 保存

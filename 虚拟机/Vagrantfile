@@ -1,0 +1,29 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box_check_update = false
+  config.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+      vb.cpus = 2
+      vb.name = "dockers"
+  end
+  config.vm.define "dockers" do |dockers|
+    dockers.vm.box = "debian/jessie64"
+   # dockers.memory = "2048"
+    dockers.vm.network :private_network, ip: "10.1.1.100"
+    config.vm.network "forwarded_port", guest: 8000, host: 8000
+    config.vm.network "forwarded_port", guest: 8001, host: 8001
+    config.vm.network "forwarded_port", guest: 8002, host: 8002
+    config.vm.network "forwarded_port", guest: 8003, host: 8003
+    config.vm.network "forwarded_port", guest: 8004, host: 8004
+    config.vm.network "forwarded_port", guest: 10022, host: 10022
+    config.vm.network "forwarded_port", guest: 10080, host: 10080
+    dockers.vm.synced_folder "../mwwork", "/mwwork"
+    dockers.vm.synced_folder "../jwwork", "/jwwork"
+    dockers.vm.hostname = "dockers"
+    dockers.ssh.password = "vagrant"
+   # dockers.vm.provision :shell, :inline => "sudo service dockers restart"
+   # dockers.vm.provision :shell, :inline => "cd /vagrant/kong && sudo dockers-compose up -d"
+  end
+end

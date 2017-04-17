@@ -1,0 +1,7 @@
+{
+  "name": "vendor_library",
+  "content": {
+    "./node_modules/.npminstall/angular/1.6.0/angular/index.js": 1,
+    "./node_modules/.npminstall/angular/1.6.0/angular/angular.js": 2
+  }
+}

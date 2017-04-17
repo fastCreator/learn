@@ -1,0 +1,88 @@
+context.getImageData(x,y,width,height); 方法返回 ImageData 对象，该对象拷贝了画布指定矩形的像素数据。
+ .data//返回一个对象，其包含指定的 ImageData 对象的图像数据
+context.putImageData(imgData,x,y,dirtyX,dirtyY,dirtyWidth,dirtyHeight); 方法将图像数据（从指定的 ImageData 对象）放回画布上。
+
+1. 以指定的尺寸（以像素计）创建新的 ImageData 对象：
+var imgData=context.createImageData(width,height);
+2. 创建与指定的另一个 ImageData 对象尺寸相同的新 ImageData 对象（不会复制图像数据）：
+var imgData=context.createImageData(imageData);
+
+1. FileList对象
+2. Blob对象
+3. File对象
+4. FileReader对象
+5, DataTransfer   event.dataTransfer
+6, FormData
+
+
+
+var debug = {hello: "world"};
+var blob = new Blob([JSON.stringify(debug, null, 2)],
+  {type : 'application/json'});
+
+  Blob.slice([start[, end[, contentType]]])
+返回一个新的 Blob 对象，包含了源 Blob 对象中指定范围内的数据。
+
+
+var reader = new FileReader();
+abort() 
+中止该读取操作.在返回时,readyState属性的值为DONE.
+readAsArrayBuffer()=>ArrayBuffer
+readAsBinaryString()=>二进制数据.
+readAsDataURL()=>data: URL
+readAsText()
+onabort
+当读取操作被中止时调用.
+onerror
+当读取操作发生错误时调用.
+onload
+当读取操作成功完成时调用.
+onloadend
+当读取操作完成时调用,不管是成功还是失败.该处理程序在onload或者onerror之后调用.
+onloadstart
+当读取操作将要开始之前调用.
+onprogress
+在读取数据过程中周期性调用.
+
+DataTransfer 
+dropEffect 
+设置实际的放置效果，它应该始终设置成 effectAllowed  的可能值之一 。
+effectAllowed 
+用来指定拖动时被允许的效果。你可以在dragstart事件中设置拖动源数据时期望的动作效果，
+files=>FileList
+types
+mozCursor
+mozItemCount
+clearData()
+getData()
+setData()
+
+
+dataURL转换为Blob对象
+function dataURLtoBlob(dataurl) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new Blob([u8arr], {type:mime});
+}
+//test:
+var blob = dataURLtoBlob('data:text/plain;base64,YWFhYWFhYQ==');
+
+Canvas转换为Blob对象并使用Ajax发送
+var dataurl = canvas.toDataURL('image/png');
+var blob = dataURLtoBlob(dataurl);
+//使用ajax发送
+var fd = new FormData();
+fd.append("image", blob, "image.png");
+var xhr = new XMLHttpRequest();
+xhr.open('POST', '/server', true);
+xhr.send(fd);
+
+name
+字段名称.
+value
+字段值.可以是,或者一个字符串,如果全都不是,则该值会被自动转换成字符串.
+filename
+(可选) 指定文件的文件名,当value参数被指定为一个Blob对象或者一个File对象时,该文件名会被发送到服务器上,对于Blob对象来说,这个值默认为"blob".

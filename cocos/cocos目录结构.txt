@@ -1,0 +1,11 @@
+assets
+  
+  |   |--atlas（图集资源）
+  |   |--font（字体）
+  |   |--imported（外部导入资源）
+  |   |--textures（贴图资源）
+  |   |--animation（动画资源）
+  |   |--prefabs（预加载资源）
+  |   |--scripts（脚本）
+  |   |--sences（场景）
+  |   |--index.fire（入口场景）

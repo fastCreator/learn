@@ -1,0 +1,3 @@
+http://www.ruanyifeng.com/blog/2016/05/react_router.html?utm_source=tool.lu   路由
+https://segmentfault.com/a/1190000005863630 React.createClass和extends Component的区别
+http://www.runoob.com/react/react-state.html  菜鸟教程

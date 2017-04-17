@@ -1,0 +1,33 @@
+﻿es6
+npm install webpack --save-dev
+npm install --save-dev babel-core babel-preset-es2015
+npm install --save-dev babel-loader
+
+css
+npm install style-loader css-loader --save-dev
+
+server
+npm install webpack-dev-server -g
+package.json
+"scripts": {
+    "start": "webpack-dev-server --config webpack.config.js"
+  },
+html
+<script src="http://localhost:8080/webpack-dev-server.js"></script>
+
+autoprefixer-loader //-moz -ms -webkit
+npm install autoprefixer-loader --save-dev 
+
+ͼƬ
+npm install url-loader --save-dev 
+
+extract-text-webpack-plugin
+
+
+less
+less!less-loader
+
+
+HtmlWebpackPlugin 
+
+http://www.jianshu.com/p/07dc1e2c375c

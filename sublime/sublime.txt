@@ -1,0 +1,3 @@
+1,快速格式化设置 
+首选项=》按键绑定
+{"keys": ["ctrl+shift+l"], "command": "reindent" , "args":{"single_line": false}},
