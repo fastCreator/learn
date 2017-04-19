@@ -18,4 +18,23 @@
 
 10,解释语言的特性有：非独立，效率低
 
-11,IE FF document.createElement FIREFOX支持，IE不支持;用setAttribute设置事件 FIREFOX不支持，IE支持
+11,IE FF innerText IE支持，FIREFOX不支持  setAttribute('class'，'styleClass') 
+
+12,new Boolean(false); 返回对象  Boolean转换为Boolean类型
+
+13,parseInt(“123a”)=123
+
+14,判断对象用instanceof ，判断类型用typeof
+
+15，alert <iframe src=”javascript: alert(1)”></iframe>  <img src=”” onerror=”alert(1)”/> IE下<s style=”top:expression(alert(1))”></s>
+
+16,JS所有都是8 Byte
+
+17,console.log(1+ +"2"+"2");  +'2' =>2
+
+18,void(); 关键字SyntaxError
+
+19,Object.prototype.toString.call(arr) === '[object Array]';
+
+20,onChange值改变并且失去焦点
+12，elementUI源码，官网分析,如何做自己的组件

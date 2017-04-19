@@ -1,0 +1,10 @@
+splice 返回被删除数组
+shifte pop 被删除值
+push unshift 长度
+join 被修改后的对象
+splice可接受 a1,a2,a3 [a1,a2,a3]
+
+纯函数
+concat 连接两个或更多的数组，并返回结果。
+slice  -s -e
+map，filter,forEach,some,every,reduce
