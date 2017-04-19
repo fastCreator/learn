@@ -1,0 +1,17 @@
+//svg to string 
+var svgString = new XMLSerializer()
+.serializeToString(document.querySelector('svg'));
+
+//string to img
+var img = new Image();
+var svg = new Blob([svgString], {type: "image/svg+xml;charset=utf-8"});
+var DOMURL = self.URL || self.webkitURL || self;
+var url = DOMURL.createObjectURL(svg);   window.URL.createObjectURL
+img.src = url;
+
+//img to canvas
+img.onload = function () {
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 0, 0);
+};

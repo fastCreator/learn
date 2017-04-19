@@ -1,11 +1,14 @@
-context.getImageData(x,y,width,height); 方法返回 ImageData 对象，该对象拷贝了画布指定矩形的像素数据。
- .data//返回一个对象，其包含指定的 ImageData 对象的图像数据
-context.putImageData(imgData,x,y,dirtyX,dirtyY,dirtyWidth,dirtyHeight); 方法将图像数据（从指定的 ImageData 对象）放回画布上。
+canvas.toDataURL('image/png');
+canvas.getContext('2d').getImageData
+canvas.getContext('2d').putImageData
 
+canvas.getContext('2d').createImageData
 1. 以指定的尺寸（以像素计）创建新的 ImageData 对象：
 var imgData=context.createImageData(width,height);
 2. 创建与指定的另一个 ImageData 对象尺寸相同的新 ImageData 对象（不会复制图像数据）：
 var imgData=context.createImageData(imageData);
+
+
 
 1. FileList对象
 2. Blob对象

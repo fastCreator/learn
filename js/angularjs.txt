@@ -1,0 +1,6 @@
+1，Providers 唯一允许 app.config(function(provide){provide.a=1;})   this.$get=function(){ return {}}
+2，Service 默认返回this 
+3，Factory return {}
+4,@ 绑定父元素事件
+5,= 双向绑定
+6,& 单向绑定

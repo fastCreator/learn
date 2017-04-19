@@ -1,0 +1,21 @@
+1,typeof object symble string undefined boolean
+
+2, 1+-undefined === NaN
+
+3,原始类型 应该是五种呢 number string boolean null undefined
+
+4,compile 翻译dom  link 绑定事件
+
+5，js对象是否是Array 最准确的是 Object.prototype.toString.call(arr) === '[object Array]';
+
+6，ajax Deferral和promise
+
+7，angularjs1中的服务实质上是单列对象
+
+8，angular compile主要作用是绑定dom
+
+9,then(successcb,errcb)  当调用了errcb 不会进入catch 除非throw
+
+10,解释语言的特性有：非独立，效率低
+
+11,IE FF document.createElement FIREFOX支持，IE不支持;用setAttribute设置事件 FIREFOX不支持，IE支持

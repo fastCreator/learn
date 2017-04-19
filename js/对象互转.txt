@@ -1,0 +1,40 @@
+//svg to string 
+var svgString = new XMLSerializer()
+.serializeToString(document.querySelector('svg'));
+
+//string to blob 
+var svg = new Blob([svgString], {type: "image/svg+xml;charset=utf-8"});
+var DOMURL = self.URL || self.webkitURL || self;
+
+//blob to url 
+var url = DOMURL.createObjectURL(svg);   window.URL.createObjectURL
+
+//url to blob
+var img = new Image();
+img.src = url;
+
+//img to canvas
+img.onload = function () {
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 0, 0);
+};
+
+//canvas to url
+canvas.toDataURL('image/png');
+
+//canvas to getImageData
+context.putImageData(imageData)
+context.getImageData()
+context.createImageData()
+
+//input to filelist
+var files = evt.dataTransfer.files; 
+
+
+var reader = new FileReader();
+reader.
+readAsText(file/blob, encoding);
+readAsBinaryString
+reaAsDataURL
+reader.onprogress = updateProgress;

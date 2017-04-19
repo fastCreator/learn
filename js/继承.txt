@@ -1,0 +1,35 @@
+一，
+function Sub(value) {
+  Super.call(this);
+  this.prop = value;
+}
+//推荐写法
+Sub.prototype = Object.create(Super.prototype);
+Sub.prototype.constructor = Sub;
+
+Sub.prototype = new Super(); //缺点子类会继承父类实例方法
+
+多重继承
+function M1() {
+  this.hello = 'hello';
+}
+
+function M2() {
+  this.world = 'world';
+}
+
+function S() {
+  M1.call(this);
+  M2.call(this);
+}
+S.prototype = M1.prototype;
+
+var s = new S();
+s.hello // 'hello'
+s.world // 'world'
+
+//私有变量违反了构造函数与实例对象相分离的原则。并且，非常耗费内存。
+this.a; var a;
+
+
+与”放大模式”相比，“宽放大模式”就是“立即执行函数”的参数可以是空对象。
