@@ -1,0 +1,9 @@
+map：对象作为键
+weakmap:只能对象作为键,key不被垃圾回收
+set:唯一性
+weakset:WeakSet 只能放置对象
+
+正则
+.source	//正则正文
+.flags  //修饰符
+

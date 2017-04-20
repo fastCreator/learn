@@ -1,0 +1,7 @@
+1，对象：普通对象，函数对象
+ 函数对象由 new Function();  Function.prototype.__proto__ === Object.prototype 万物皆对象，有个终结
+ Object.prototype.__proto__ ===null;
+
+2，__proto__指针 指向创建他的函数对象的prototype
+
+3，原型对象prototype，有个constructor,指向引用他的对象

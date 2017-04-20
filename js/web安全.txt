@@ -1,0 +1,6 @@
+1，xss攻击 JS注入1，恶意循环 cookie问题
+2，CSRF
+  由B病毒网站跳入A信任网站
+  1,验证码
+  2,referer 查看来源
+  3,Anti CSRF Token

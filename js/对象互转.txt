@@ -4,9 +4,9 @@ var svgString = new XMLSerializer()
 
 //string to blob 
 var svg = new Blob([svgString], {type: "image/svg+xml;charset=utf-8"});
-var DOMURL = self.URL || self.webkitURL || self;
 
 //blob to url 
+var DOMURL = self.URL || self.webkitURL || self;
 var url = DOMURL.createObjectURL(svg);   window.URL.createObjectURL
 
 //url to blob
