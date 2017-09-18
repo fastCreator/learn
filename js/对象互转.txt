@@ -3,13 +3,13 @@ var svgString = new XMLSerializer()
 .serializeToString(document.querySelector('svg'));
 
 //string to blob 
-var svg = new Blob([svgString], {type: "image/svg+xml;charset=utf-8"});
+var svgblob = new Blob([svgString], {type: "image/svg+xml;charset=utf-8"});
 
 //blob to url 
 var DOMURL = self.URL || self.webkitURL || self;
-var url = DOMURL.createObjectURL(svg);   window.URL.createObjectURL
+var url = DOMURL.createObjectURL(svgblob);   window.URL.createObjectURL
 
-//url to blob
+//url to img
 var img = new Image();
 img.src = url;
 
@@ -38,3 +38,16 @@ readAsText(file/blob, encoding);
 readAsBinaryString
 reaAsDataURL
 reader.onprogress = updateProgress;
+
+
+dataURL转换为Blob对象
+function dataURLtoBlob(dataurl) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new Blob([u8arr], {type:mime});
+}
+
+base64:a-zA-z10-9+/   8bit位   Uint8Array

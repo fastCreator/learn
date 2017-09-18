@@ -1,0 +1,7 @@
+blok:https://gmiam.com/post/evo.html
+
+Vue 2.0 底层基于 Snabbdom 这个 Virtual DOM 做了优化与整合 https://github.com/snabbdom/snabbdom
+Vue 2.0 的 Parse 原型基于 John Resig 的 HTML Parser https://johnresig.com/blog/pure-javascript-html-parser/
+数据响应主要是依据 ES5 的 getter 与 setter 来做数据变化的钩子处理
+DocumentFragment 对象//占位
+http://jiongks.name/blog/vue-code-review/ //勾三勾四
